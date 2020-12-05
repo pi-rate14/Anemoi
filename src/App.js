@@ -11,31 +11,31 @@ const App = () => {
 
   const changeWeatherClass = () => {
     if (typeof weather.main != 'undefined') {
-      if (weather.weather[0].main === 'fog') {
+      if (weather.weather[0].main === 'Fog') {
         setWeatherClass('fog')
-      } else if (weather.weather[0].main === 'hazy') {
+      } else if (weather.weather[0].main === 'Hazy') {
         setWeatherClass('hazy')
-      } else if (weather.weather[0].main === 'rain') {
+      } else if (weather.weather[0].main === 'Rain') {
         setWeatherClass('rain')
-      } else if (weather.weather[0].main === 'snow') {
+      } else if (weather.weather[0].main === 'Snow') {
         setWeatherClass('snow')
       } else if (
         weather.main.temp > 16 &&
-        weather.weather[0].main === 'clouds'
+        weather.weather[0].main === 'Clouds'
       ) {
         setWeatherClass('hotCloudy')
       } else if (
         weather.main.temp > 16 &&
-        weather.weather[0].main === 'clear'
+        weather.weather[0].main === 'Clear'
       ) {
         setWeatherClass('hotClear')
       } else if (
         weather.main.temp < 16 &&
-        weather.weather[0].main === 'clouds'
+        weather.weather[0].main === 'Clouds'
       ) {
         setWeatherClass('coldCloudy')
       }
-      if (weather.main.temp > 16 && weather.weather[0].main === 'clear') {
+      if (weather.main.temp > 16 && weather.weather[0].main === 'Clear') {
         setWeatherClass('coldClear')
       }
       console.log(weatherClass)
@@ -51,7 +51,7 @@ const App = () => {
         .then((result) => {
           setWeather(result)
           changeWeatherClass()
-          console.log(weatherClass)
+          console.log(weather.weather[0].main)
         })
     }
   }
@@ -111,7 +111,9 @@ const App = () => {
             </div>
             <div className="weather-box">
               <div className="temp">{weather.main.temp}°c</div>
-              <div className="weather">{weather.weather[0].main}</div>
+              <div className="weather">
+                {console.log(weather.weather[0].main)} {weather.weather[0].main}
+              </div>
             </div>
           </div>
         ) : (
