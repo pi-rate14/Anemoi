@@ -51,7 +51,7 @@ const App = () => {
         .then((result) => {
           setWeather(result)
           changeWeatherClass()
-          console.log(weather.weather[0].main)
+          //console.log(weather.weather[0].main)
         })
     }
   }
